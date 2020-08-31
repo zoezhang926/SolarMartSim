@@ -1,0 +1,158 @@
+<% include partials/header %>
+
+<div>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand text-primary" href="/">SolarMart</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Coming In The Fugure</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Your home address" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>  
+  </div>
+  <div class="container-fluid">
+    <div class="row custom-row">
+      <div class="col-lg-5 col-sm-12 col-xs-12 content">
+        <div class="row" id="parameters_form">
+          <form id="parameters" action="">
+            <!--<label for="areaCalc">Unit number x Unit area = Total area</label>-->
+            <!--<div class="form-row" id="areaCalc">-->
+            <!--  <div class="col-xs-4 col-sm-4">-->
+            <!--    <input type="text" class="form-control" id="modelUnit" placeholder="Units of product" value="" required>-->
+            <!--  </div>-->
+            <!--  <div class="col-xs-4 col-sm-4 input-group">-->
+            <!--    <div class="input-group-prepend">-->
+            <!--      <span class="input-group-text" id="inputGroupPrepend">x</span>-->
+            <!--    </div>-->
+            <!--    <button type="text" class="form-control" id="unitModelArea">unit area</button>-->
+            <!--  </div>-->
+            <!--  <div class="col-xs-4 col-sm-4 input-group">-->
+            <!--    <div class="input-group-prepend">-->
+            <!--      <span class="input-group-text" id="inputGroupPrepend">=</span>-->
+            <!--    </div>-->
+            <!--    <button type="text" class="form-control" id="totalModelArea">total area</button>-->
+            <!--  </div>-->
+            <!--</div>-->
+            <div class="form-row">
+              <div class="col-xs-12 col-sm-6 form-group">
+                <input type="text" class="form-control" id="roofTilt" placeholder="Roof tilt in degree" value="" required>
+              </div>
+              <div class="col-xs-12 col-sm-6 form-group">
+                <input type="text" class="form-control" id="roofAzimuth" placeholder="Roof azimuth in degree" value="" required>
+              </div>
+            </div>
+            <div class="form-row input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Choose a products</label>
+              </div>
+              <select class="custom-select" id="pvModule" required>
+                <!--<option>Choose...PV Product</option>-->
+                <% moduleNames.forEach(function(name){ %>
+                  <option value="<%= name %>"><%= name %></option>
+                <% }) %>
+              </select>
+              <input type="text" class="form-control" id="modelUnit" placeholder="Units of product" value="" required>
+            </div>
+            <div class="form-row mb-3">
+              <div class="col-xs-7 col-sm-7">
+                <label class="input-group-text" for="installCost">Unit Install Cost($/unit)</label>
+                <input type="text" class="form-control" id="installCost" placeholder="average cost per unit" required>
+              </div>
+              <div class="col-xs-5 col-sm-5">
+                <label class="input-group-text" for="unitElecCost">Unit Elec cost($/kwh)</label>
+                <input type="text" class="form-control" id="unitElecCost" placeholder="cost per kwh" required>
+              </div>
+            </div>
+            <div class="form-row input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Radius(defect)</label>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Contractor Search (miles)
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">20</a>
+                  <a class="dropdown-item" href="#">50</a>
+                  <a class="dropdown-item" href="#">100</a>
+                </div>
+              </div>
+              <button class="col-xs-12 col-sm-2 btn btn-outline-secondary" id="submitButton" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <h3>Here`s your benefit.</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Items</th>
+                <th scope="col">Estimation</th>
+                <th scope="col">Unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Annual Electricity</th>
+                <th id="annualElec">100</th>
+                <th>kWh</th>
+              </tr>
+              <tr>
+                <th scope="row">Annual Bill Saving</th>
+                <th id="annualSave">500</th>
+                <th>Dollar</th>
+              </tr>
+              <tr>
+                <th scope="row">Installation Cost</th>
+                <th id="totalInstallCost">6000</th>
+                <th>Dollar</th>
+              </tr>
+              <tr>
+                <th scope="row">Payback Period</th>
+                <th id="payback">12</th>
+                <th>Month</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-lg-7 col-sm-12 col-xs-12">
+        <div class="container-fluid">
+          <div id="cesiumContainer" class="content border padding-control"></div>
+        </div>
+        <div class="container">
+          <h3>Recommended contractors near your home:</h3>
+          <div class="container">
+            <ul>
+              <li>Contractor 1</li>
+              <li>Contractor 2</li>
+              <li>Contractor 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="/script.js"></script>
+<script type="text/javascript" src="/simulate.js"></script>
+
+<% include partials/footer %>

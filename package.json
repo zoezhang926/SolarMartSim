@@ -1,0 +1,23 @@
+{
+  "name": "solarmart",
+  "version": "1.0.0",
+  "description": "SolarMart, a 3D-augemented market which help customers get precise estimation of solar benefit and cost. It also connects real products from contractors to customers.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zoe Zhang",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "cesium": "^1.43.0",
+    "child_process": "^1.0.2",
+    "ejs": "^2.5.7",
+    "engines": {
+      "node": "6.11.2"
+    },
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "mongoose": "^5.0.12",
+    "request": "^2.85.0"
+  }
+}
