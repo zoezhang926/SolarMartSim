@@ -13,3 +13,8 @@ install with:
 <br>
 pip install -r requirements.txt
 <br>
+
+
+note:
+SSH -i apple.pem ubuntu@3.129.89.45
+nohup node app.js & ## make the app keeping running
