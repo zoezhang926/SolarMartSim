@@ -1,4 +1,4 @@
-## Click [here](http://3.129.89.45:8080/) to see the **AWS live demo**
+## Click [here](http://3.129.89.45:8080/) to see the **AWS live demo** ✌
 
 require python2.7 envirenment for back-end solar simulation module 
 <br>
