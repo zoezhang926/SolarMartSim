@@ -1,6 +1,6 @@
 ## Click [here](http://3.129.89.45:8080/) to see the **AWS live demo** ✌
 
-Let this app to help you make better decision.
+Let this app to help you make better decision on solar panels purchase
 
 require python2.7 envirenment for back-end solar simulation module.
 <br>
